@@ -59,10 +59,6 @@ public class Util {
         return new File(path, "bin/" + execName).exists();
     }
 
-    public static boolean hasGemfile(String path) {
-        return new File(path, "Gemfile").exists();
-    }
-
     public static boolean hasGemsInstalled(String path) {
         File[] gems = getGemsDir(path);
         for (File gem : gems) {
