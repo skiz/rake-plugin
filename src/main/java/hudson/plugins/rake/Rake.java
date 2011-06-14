@@ -94,7 +94,12 @@ public class Rake extends Builder {
                 listener.fatalError(exec + " doesn't exist");
                 return false;
             }
-            args.add(exec.getPath());
+
+            if(!rake.hasGemfile()) {
+                args.add(exec.getPath());
+            } else {
+                args.add("bundle exec", exec.getPath());
+            }
         } else {
             args.add(lastBuiltLauncher.isUnix()?"rake":"rake.bat");
         }
